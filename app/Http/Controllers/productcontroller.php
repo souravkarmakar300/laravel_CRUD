@@ -12,6 +12,13 @@ class productcontroller extends Controller
 {
 
 
+        // Apply the 'auth' middleware to all methods in this controller
+        // public function __construct()
+        // {
+        //     $this->middleware('auth:web');
+        // }
+
+
     public function register(){
         return view('register');
     }
