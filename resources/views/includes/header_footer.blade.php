@@ -13,7 +13,7 @@
 <body>
     <nav class="navbar navbar-light bg-dark">
         <div class="container-fluid">
-            <a href="/" class="navbar-brand text-light">Products</a>
+            <a href="/index" class="navbar-brand text-light">Products</a>
         </div>
     </nav>
 
