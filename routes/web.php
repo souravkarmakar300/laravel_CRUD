@@ -15,7 +15,18 @@ use App\Http\Controllers\ProductController;
 */
 
 // For Products Table
-Route::get('/', [ProductController::class, 'index']);
+
+// Registetr Page
+Route::get('/', [ProductController::class, 'register'])->name('register');
+Route::post('/register/store', [ProductController::class, 'register_store'])->name('register.store');
+
+// Login Page 
+Route::get('/login', [ProductController::class, 'Show_login'])->name('login');
+Route::post('/login/store', [ProductController::class, 'login_store'])->name('login.store');
+
+
+
+Route::get('/index', [ProductController::class, 'index']);
 Route::get('/products/create', [ProductController::class, 'create']);
 Route::post('/products/store', [ProductController::class, 'store']);
 Route::get('products/{id}/edit', [ProductController::class, 'edit']);
