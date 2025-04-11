@@ -14,6 +14,7 @@
     <nav class="navbar navbar-light bg-dark">
         <div class="container-fluid">
             <a href="/index" class="navbar-brand text-light">Products</a>
+            <a href="{{ route('logout') }}"><button class="btn btn-danger my-3">Logout</button></a>
         </div>
     </nav>
 

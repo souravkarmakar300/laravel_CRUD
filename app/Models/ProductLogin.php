@@ -12,6 +12,7 @@ class ProductLogin extends Authenticatable
     use HasFactory;
     Protected $table = 'product_logins';
     protected $fillable = [
+        'name',
         'phone_no',
         'password',
     ];

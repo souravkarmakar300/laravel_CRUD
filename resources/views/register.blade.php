@@ -22,6 +22,11 @@
     <form action="{{ route('register.store') }}" method="post">
         @csrf
     
+        <input type="text" name="name" placeholder="Enter Name" value="{{ old('name') }}"><br>
+        @error('name')
+            <span style="color:red;">{{ $message }}</span><br>
+        @enderror
+
         <input type="text" name="phone_no" placeholder="Enter Phone" value="{{ old('phone_no') }}"><br>
         @error('phone_no')
             <span style="color:red;">{{ $message }}</span><br>
@@ -36,7 +41,8 @@
             <span style="color:red;">{{ $errors->first('error') }}</span><br>
         @endif
     
-        <input type="submit" value="Register">
+        <input type="submit" value="Register"><br>
+        <a href="{{ route('login') }}">If you register. Please Login </a>
     </form>
     
     </div>

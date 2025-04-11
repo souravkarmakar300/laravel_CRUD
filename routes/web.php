@@ -26,12 +26,20 @@ Route::post('/login/store', [ProductController::class, 'login_store'])->name('lo
 
 Route::middleware(['auth:web'])->group(function(){
 
-    Route::get('/index', [ProductController::class, 'index']);
+    Route::get('/index', [ProductController::class, 'index'])->name('index');
     Route::get('/products/create', [ProductController::class, 'create']);
     Route::post('/products/store', [ProductController::class, 'store']);
-    Route::get('products/{id}/edit', [ProductController::class, 'edit']);
-    Route::put('/products/{id}/update', [ProductController::class, 'update']);
+    Route::get('/ownprofile/{id}/show', [ProductController::class, 'ownprofile'])->name('ownprofile');
+
+// Admin Route Authenticate Using Gate
+    route::middleware('can:isAdmin')->group(function(){
+
+        Route::get('products/{id}/edit', [ProductController::class, 'edit']);
+        Route::put('/products/{id}/update', [ProductController::class, 'update']);
+    });
+
     Route::delete('/products/{id}/delete', [ProductController::class, 'destroy']);
     Route::get('/products/{id}/show', [ProductController::class, 'show']);
+    Route::get('/logout', [ProductController::class, 'logout'])->name('logout');
 });
 

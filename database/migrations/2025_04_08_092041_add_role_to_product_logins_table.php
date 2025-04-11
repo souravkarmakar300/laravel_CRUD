@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('product_logins', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->integer('phone_no')->unique();
-            $table->string('password');
-            $table->timestamps();
+        Schema::table('product_logins', function (Blueprint $table) {
+            $table->string('role')->comment('admin, user')->default('user')->after('password');
+            
         });
     }
 
@@ -25,6 +22,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('product_logins');
+        Schema::table('product_logins', function (Blueprint $table) {
+            
+            Schema::dropIfExists('product_logins');
+        });
     }
 };

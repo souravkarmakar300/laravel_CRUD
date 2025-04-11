@@ -38,7 +38,8 @@
             <span style="color:red;">{{ $errors->first('error') }}</span><br>
         @endif
     
-        <input type="submit" value="Login">
+        <input type="submit" value="Login"><br>
+        <a href="/">If you are not Login. Please Register </a>
     </form>
     
     </div>
