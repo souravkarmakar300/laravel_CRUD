@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\MultipleImageController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -43,3 +47,14 @@ Route::middleware(['auth:web'])->group(function(){
     Route::get('/logout', [ProductController::class, 'logout'])->name('logout');
 });
 
+Route::resource('customer', CustomerController::class);
+Route::resource('post', PostController::class);
+
+
+
+
+// Multiple Image Upload
+Route::get('/images',[MultipleImageController::class, 'images'])->name('images');
+Route::post('/images/store',[MultipleImageController::class, 'store'])->name('images.store');
+Route::get('/image/{id}/edit',[MultipleImageController::class, 'edit'])->name('image.edit');
+route::put('/image/{id}/update',[MultipleImageController::class, 'update'])->name('image.update');
